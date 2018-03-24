@@ -15,7 +15,13 @@ public:
 
 	void InsertLast(int value);
 	void InsertFirst(int value);
+	void InsertMid(unsigned int position, int value);
 
+	void DeleteFirst();
+	void DeleteLast();
+	void DeleteMid(unsigned int position);
+
+	bool IsPrime(int value);
 	void PrintList();
 };
 

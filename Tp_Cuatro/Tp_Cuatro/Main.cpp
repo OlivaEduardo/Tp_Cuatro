@@ -66,9 +66,14 @@ int main()
 	List* test = new List();
 	test->InsertFirst(nodeValue1);
 	test->InsertLast(nodeValue2);
-	test->InsertLast(15);
+	test->InsertLast(7);
+	test->InsertMid(2, 60);
+
 	test->PrintList();
 
+	test->DeleteMid(2);
+
+	test->PrintList();
 	int var;
 	std::cin >> var;
 	return 0;
