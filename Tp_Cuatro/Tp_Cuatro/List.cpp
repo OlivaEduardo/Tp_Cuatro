@@ -68,20 +68,48 @@ void List::InsertMid(unsigned int position, int value)
 	}
 	else
 	{
-		Node* temp = new Node(value);
-		Node* previous = nullptr;
-		Node* current = head;
-
-		for (unsigned int i = 1; i < position; i++)
+		if (head == nullptr)
 		{
-			previous = current;
-			current = current->Next();
+			Node* temp = new Node(value);
+			head = temp;
+			tail = temp;
 		}
+		else
+		{
+			Node* counter = head;
+			unsigned int nodesCount = 1;
 
-		previous->SetNext(temp);
-		temp->SetNext(current);
-		temp->SetPrev(previous);
-		current->SetPrev(temp);
+			while (counter->Next() != nullptr)
+			{
+				counter = counter->Next();
+				nodesCount++;
+			}
+
+			if (position < nodesCount)
+			{
+				Node* temp = new Node(value);
+				Node* previous = nullptr;
+				Node* current = head;
+
+				for (unsigned int i = 1; i < position; i++)
+				{
+					previous = current;
+					current = current->Next();
+				}
+
+				previous->SetNext(temp);
+				temp->SetNext(current);
+				temp->SetPrev(previous);
+				current->SetPrev(temp);
+			}
+			else
+			{
+				Node* temp = new Node(value);
+				temp->SetPrev(tail);
+				tail->SetNext(temp);
+				tail = temp;
+			}
+		}
 	}
 }
 
@@ -135,9 +163,6 @@ void List::PrintList()
 		while (temp != nullptr)
 		{
 			std::cout << temp->Value() << "\n";
-
-			std::cout << temp->Previous() << "\n";
-			std::cout << temp->Next() << "\n";
 
 			temp = temp->Next();
 
