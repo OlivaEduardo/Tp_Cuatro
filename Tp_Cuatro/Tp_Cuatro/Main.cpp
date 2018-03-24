@@ -1,7 +1,7 @@
 //Practice about pointers
 
 #include <iostream>
-#include "Node.h"
+#include "List.h"
 
 //Swap function with pointer parameters
 void Swap_1(int *p1, int *p2)
@@ -60,21 +60,14 @@ int main()
 	std::cout << value1 << "    " << value2 << "\n";
 
 	//List test
-	int nodeValue1 = 20;
-	int nodeValue2 = 15;
-	Node* list1 = new Node(nodeValue1);
-	Node* list2 = new Node(nodeValue2, list1, nullptr);
-	list1->SetNext(list2);
+	int nodeValue1 = 10;
+	int nodeValue2 = 25;
 
-	list1->printValue();
-	list2->printValue();
-
-	list1->SetValue(40);
-	list1->printValue();
-	list2->printValue();
-
-	delete list1;
-	delete list2;
+	List* test = new List();
+	test->InsertFirst(nodeValue1);
+	test->InsertLast(nodeValue2);
+	test->InsertLast(15);
+	test->PrintList();
 
 	int var;
 	std::cin >> var;

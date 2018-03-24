@@ -2,30 +2,6 @@
 
 #include <iostream>
 
-int value;
-
-Node* previous;
-Node* next;
-
-void Node::SetValue(int x)
-{
-	value = x;
-}
-
-void Node::printValue()
-{
-	std::cout << "El valor es: " << value << "\n";
-}
-
-void Node::SetPrev(Node* prevPtr)
-{
-	previous = prevPtr;
-}
-
-void Node::SetNext(Node* nextPtr)
-{
-	next = nextPtr;
-}
 
 Node::Node(int x)
 {
@@ -44,4 +20,34 @@ Node::Node(int x, Node* prevPtr, Node* nextPtr)
 
 Node::~Node()
 {
+}
+
+void Node::SetValue(int x)
+{
+	value = x;
+}
+
+int Node::Value()
+{
+	return value;
+}
+
+void Node::SetPrev(Node* prevPtr)
+{
+	previous = prevPtr;
+}
+
+void Node::SetNext(Node* nextPtr)
+{
+	next = nextPtr;
+}
+
+Node* Node::Next()
+{
+	return next;
+}
+
+Node* Node::Previous()
+{
+	return previous;
 }
