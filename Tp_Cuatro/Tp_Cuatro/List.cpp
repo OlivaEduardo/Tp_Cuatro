@@ -175,14 +175,19 @@ void List::PrintList()
 bool List::IsPrime(int value)
 {
 	bool prime = true;
-	int aux = 0;
-	if (value == 1 || value == 0 || value == -1)
+	if (value <= 0)
+	{
+		prime = false;
+	}
+	else if (value > 0 && value < 4)
+	{
 		prime = true;
+	}
 	else
 	{
 		for (int i = 2; i < value; i++)
 		{
-			aux = value / i;
+			int aux = value / i;
 			aux = aux * i;
 
 			if (aux == value)

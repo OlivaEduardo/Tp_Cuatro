@@ -68,6 +68,11 @@ int main()
 	test->InsertLast(nodeValue2);
 	test->InsertLast(7);
 	test->InsertMid(2, 60);
+	test->InsertLast(-85);
+	test->InsertFirst(0);
+	test->InsertFirst(5);
+	test->InsertMid(3, 11);
+	test->InsertLast(6);
 
 	test->PrintList();
 
